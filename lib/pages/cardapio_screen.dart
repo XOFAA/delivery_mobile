@@ -11,12 +11,13 @@ class CardapioScreen extends StatefulWidget {
 class _CardapioScreenState extends State<CardapioScreen> {
   List cardapio = [];
   bool isLoading = true;
+
   @override
   void initState() {
     CardapioController().getCardapio().then((value) {
       setState(() {
-        isLoading = false;
         cardapio = value;
+        isLoading = false;
       });
     });
     super.initState();
@@ -34,8 +35,14 @@ class _CardapioScreenState extends State<CardapioScreen> {
                 children: [
                   Row(
                     children: [
-                      Image.network(
-                          'https://api.gdelivery.app.br/' + cardapio[index].img)
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.height * 0.15,
+                          child: Image.network(
+                            'https://api.gdelivery.app.br/files/' +
+                                cardapio[index].img,
+                            fit: BoxFit.contain,
+                          ))
                     ],
                   ),
                   Text(cardapio[index].titulo),
