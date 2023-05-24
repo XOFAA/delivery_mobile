@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_sticky_header: ^0.6.5
   http: ^1.0.0
   modal_bottom_sheet: ^2.1.2
+  stretchy_header: ^2.0.0
  
 dev_dependencies:
   flutter_test:
